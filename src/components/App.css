@@ -40,9 +40,15 @@
   flex-direction: column;
   
   width: 20rem;
-  height: 22rem;
+  height: 20rem;
   border: solid 4px black;
   background-color: rgb(199, 223, 244);
+}
+.day-card img {
+  height: 4rem;
+}
+.day-card p {
+  margin: 0;
 }
 
 .card-container {
