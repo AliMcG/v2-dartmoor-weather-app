@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+/* .day-card {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  height: 20rem;
+  border: solid 4px black;
+} */
