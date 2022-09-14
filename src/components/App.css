@@ -1,15 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  
+  
+  /* background-repeat: no-repeat;
+  background-position: "center";
+  min-Height: 100vh;
+  min-Width: 100vw;
+  background-attachment: fixed;
+  background-image: url("../../public/dartmoor-background.jpg"); */
 }
 
-/* .day-card {
+.input-container {
+  /* position: absolute;
+  top: 0;
+  /* flex-direction: row; */
   display: flex;
+  
+  justify-content: center;
+  /* height: 20rem; */
+  margin: 2rem;
+}
+
+.bg {
+  background-repeat: no-repeat;
+  background-position: "center";
+  min-Height: 100vh;
+  min-Width: 100vw;
+  background-attachment: fixed;
+  background-image: url("../../public/dartmoor-background.jpg");
+}
+
+.day-card {
+  /* display: flex; */
   flex-direction: column;
+  
   width: 20rem;
-  height: 20rem;
+  height: 22rem;
   border: solid 4px black;
-} */
+  background-color: rgb(199, 223, 244);
+}
+
+.card-container {
+  display: flex;  
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 60vh;
+  width: 74vw;
+  gap: 60px; 
+  /* margin-top: 1vh;  */
+  margin-bottom: 3vh;
+  margin-left: 7.4vw;
+}

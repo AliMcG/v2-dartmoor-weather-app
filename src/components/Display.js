@@ -13,12 +13,14 @@ export default function Display({day0}) {
   
 
   const [tempData, setTempData] = useState(
-    {labels: day0.map((day) => new Date(day.dt * 1000).getHours()),
+    {labels: day0.map((day) => (new Date(day.dt * 1000).getHours() * 100)),
     datasets: [
     {
-      label: 'Dataset 1',
+      label: `${day}`,
       data: day0.map((day) => day.main.temp),
-      
+      backgroundColor: [
+        'rgba(127, 175, 219, 1)'],
+      borderWidth: 1
     }]}
   )
 
@@ -32,11 +34,10 @@ export default function Display({day0}) {
   return (
     <div className="day-card">
       <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="icon" />
-   
       <BarChart ChartData={tempData} />
       <p>{day0[0].main.temp}</p>
       <p>{description}</p>
-      <p>{day}</p>
+      {/* <p>{day}</p> */}
     </div>
   );
 }
