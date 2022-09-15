@@ -13,7 +13,7 @@ export default function Display({day0}) {
   
 
   const [tempData, setTempData] = useState(
-    {labels: day0.map((day) => new Date(day.dt * 1000).getHours()),
+    {labels: day0.map((day) => `${new Date(day.dt * 1000).getHours()}:00`),
     datasets: [
     {
       label: `Temperture`,
