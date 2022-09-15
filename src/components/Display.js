@@ -26,9 +26,11 @@ export default function Display({day0}) {
 
   
 
-  
+  // this only returns the data for the [0] in the array - so the 1st info for the day.
   const icon = day0[0].weather[0].icon
   const description = day0[0].weather[0].description
+  const tempCheck = day0.map((day) => day.main.temp_max)
+  const maxTemp = Math.round(Math.max(...tempCheck))
   // date_text, temp, icon, description
 
   return (
@@ -36,9 +38,7 @@ export default function Display({day0}) {
       <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="icon" />
       <p>{description}</p>
       <BarChart ChartData={tempData} />
-      <p>Current Temperture{day0[0].main.temp}</p>
-      
-      {/* <p>{day}</p> */}
+      <p>Max Temperture: {maxTemp}°C</p>
     </div>
   );
 }
