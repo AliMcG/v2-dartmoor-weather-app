@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import data from "../Data/testWeatherData";
+// import data from "../Data/testWeatherData";
 import Display from "./Display";
 import Input from "./InputBar";
 import Title from "./Title";
@@ -13,9 +13,13 @@ function App() {
   const [day4, setDay4] = useState("");
   const [location, setLocation] = useState("");
 
-  function getWeather() {
+  async function getWeather() {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
+    );
+    const data = await response.json();
+    console.log(data);
     const today = new Date().getDate();
-    
 
     setDay0(
       data.list.filter((object) => {
@@ -26,7 +30,7 @@ function App() {
         }
       })
     );
-    console.log(day0);
+    
 
     setDay1(
       data.list.filter((object) => {
@@ -37,7 +41,7 @@ function App() {
         }
       })
     );
-    
+
     setDay2(
       data.list.filter((object) => {
         if (new Date(object.dt * 1000).getDate() === today + 2) {
@@ -47,7 +51,7 @@ function App() {
         }
       })
     );
-    
+
     setDay3(
       data.list.filter((object) => {
         if (new Date(object.dt * 1000).getDate() === today + 3) {
@@ -57,7 +61,7 @@ function App() {
         }
       })
     );
-    
+
     setDay4(
       data.list.filter((object) => {
         if (new Date(object.dt * 1000).getDate() === today + 4) {
@@ -67,13 +71,10 @@ function App() {
         }
       })
     );
-    
   }
-  
 
   function onChange(e) {
     setLocation(e.target.value);
-    
   }
 
   return (
