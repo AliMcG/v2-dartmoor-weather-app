@@ -24,8 +24,8 @@ export default function Display({day0}) {
     }]}
   )
 
-  // map or filter through day0 to find the highes
-  // map throught the icons and return the most common value.
+  // map or filter through day0 to find the highest
+  // map through the icons and return the most common value.
   function mostFreqStr(arr) {
     var obj = {}, mostFreq = 0, which = [];
 
@@ -51,7 +51,7 @@ export default function Display({day0}) {
   const description = day0[0].weather[0].description
 
   const icon = mostFreqStr(iconList)
-  console.log(icon)
+  // console.log(icon)
 
   const tempCheck = day0.map((day) => day.main.temp_max)
   const maxTemp = Math.round(Math.max(...tempCheck))
@@ -59,10 +59,10 @@ export default function Display({day0}) {
 
   return (
     <div className="day-card">
-      <img src={`http://openweathermap.org/img/wn/${icon[0]}@2x.png`} alt="icon" />
+      <img src={`https://openweathermap.org/img/wn/${icon[0]}@2x.png`} alt="icon" />
       <p>{description}</p>
       <BarChart ChartData={tempData} />
-      <p>Max Temperture: {maxTemp}°C</p>
+      <p>Max Temperature: {maxTemp}°C</p>
       <p>{day}</p>
     </div>
   );
