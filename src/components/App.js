@@ -6,20 +6,26 @@ import Title from "./Title";
 import "./App.css";
 
 function App() {
+  // const [days, setDays] = useState("")
   const [day0, setDay0] = useState("");
   const [day1, setDay1] = useState("");
   const [day2, setDay2] = useState("");
   const [day3, setDay3] = useState("");
   const [day4, setDay4] = useState("");
   const [location, setLocation] = useState("");
+  const [title, setTitle] = useState(null)
 
   async function getWeather() {
+    setTitle(location)
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
     );
     const data = await response.json();
     console.log(data);
     const today = new Date().getDate();
+    
+    // const days = data.list.sort((a, b) => ((a.dt * 1000).getDate()) - ((b.dt * 1000).getDate()))
+    // console.log(days)
 
     setDay0(
       data.list.filter((object) => {
@@ -75,6 +81,7 @@ function App() {
 
   function onChange(e) {
     setLocation(e.target.value);
+    // setTitle(e.target.value)
   }
 
   return (
@@ -86,7 +93,7 @@ function App() {
           getWeather={getWeather}
         />
         {location ? (
-          <Title text={location} />
+          <Title text={title} />
         ) : (
           <Title text="Choose a location" />
         )}
