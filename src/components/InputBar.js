@@ -12,7 +12,7 @@ function Input({ handleChange, location, getWeather }) {
         value={location}
       
       ></input>
-      <button className="button" onClick={getWeather}>Get the Weather</button>
+      <button className="button" onClick={getWeather} >Get the Weather</button>
     </div>
   );
 }
