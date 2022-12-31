@@ -5,7 +5,7 @@ export default function Display({day0}) {
   
   // Uses an array of the days of the week to return the day of the week
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  const day = days[new Date(day0[0].dt * 1000).getDay()];
+  const day = days[new Date(day0[0]?.dt * 1000).getDay()];
   // console.log(day)
 
   // This returns the the number of current day in the moth = i.e 14
@@ -48,7 +48,7 @@ export default function Display({day0}) {
   }
   
   const iconList = day0.map((day) => day.weather[0].icon)
-  const description = day0[0].weather[0].description
+  const description = day0[0]?.weather[0].description
 
   const icon = mostFreqStr(iconList)
   // console.log(icon)
